@@ -18,7 +18,6 @@ discordClient.once('ready', () => {
 });
 
 discordClient.on('interactionCreate', async interaction => {
-	console.log(interaction);
 	if (interaction.isCommand()){
 		const command = discordClient.commands.get(interaction.commandName);
 
