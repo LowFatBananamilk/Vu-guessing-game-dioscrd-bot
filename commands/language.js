@@ -25,7 +25,7 @@ module.exports = {
         if (!servers[interaction.guildId])
             servers[interaction.guildId] = {};
         servers[interaction.guildId].language = language;
-        fs.writeFileSync('./datas/server_settings.json', JSON.stringify(servers, null, '\t'));
+        fs.writeFile('./datas/server_settings.json', JSON.stringify(servers, null, '\t'));
 
         const { language: text } = require(`../translations/${language}.json`);
         interaction.reply(text.set);

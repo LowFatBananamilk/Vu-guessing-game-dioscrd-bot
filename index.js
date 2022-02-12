@@ -8,12 +8,12 @@ const user_scores_path = './datas/user_scores.json';
 const server_settings_path = './datas/server_settings.json';
 if (!fs.existsSync(user_scores_path)) {
 	console.log(`There is no "${user_scores_path}". This might mean the data might have been lost!!`);
-	fs.writeFileSync(user_scores_path, JSON.stringify({}, null, '\t'));
+	fs.writeFile(user_scores_path, JSON.stringify({}, null, '\t'));
 	console.log('Created a new file..');
 }
 if (!fs.existsSync(server_settings_path)) {
 	console.log(`There is no "${server_settings_path}. This might mean the data might have been lost!!`);
-	fs.writeFileSync(server_settings_path, JSON.stringify({}, null, '\t'));
+	fs.writeFile(server_settings_path, JSON.stringify({}, null, '\t'));
 	console.log('Created a new file..');
 }
 

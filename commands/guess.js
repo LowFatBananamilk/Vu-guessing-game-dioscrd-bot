@@ -75,7 +75,7 @@ module.exports = {
         });
 
         collector.on('end', collected => {
-            fs.writeFileSync('./datas/scores.json', JSON.stringify(scores, null, '\t'));
+            fs.writeFile('./datas/scores.json', JSON.stringify(scores, null, '\t'));
         });
     }
 };
