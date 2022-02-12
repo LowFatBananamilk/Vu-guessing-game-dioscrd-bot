@@ -10,11 +10,12 @@ jobs:
   build:
 
     runs-on: self-hosted
+    environment: production
 
     steps: 
       - uses: actions/checkout@v2 
       - run: | 
-          npm install
+          npm install --production
           export DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} 
           pm2 delete Vu-guessing-game-dioscrd-bot.js 2> /dev/null
           pm2 start index.js --name Vu-guessing-game-dioscrd-bot  
