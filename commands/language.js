@@ -1,33 +1,39 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fs = require('fs');
 
-const commandFiles = fs.readdirSync('./translations').filter(file => file.endsWith('.json'));
 const servers = require('../datas/server_settings.json');
 
+const translationFiles = fs.readdirSync('./translations').filter((file) => file.endsWith('.json'));
+
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('language')
-        .setDescription("Change bot's language on the server.")
-        .addStringOption(option => {
-            option.setName('option').setDescription("test").setRequired(true);
-            
-            for (const file of commandFiles) {
-                if (file != 'language_file_template.json') {
-                    const { name } = require(`../translations/${file.substring(file.substring(0, file.length - 5))}`);
-                    option.addChoice(name, file);
-                }
-            }
-            return option;
-        }),
+  data: new SlashCommandBuilder()
+    .setName('language')
+    .setDescription("Change bot's language on the server.")
+    .addStringOption((option) => {
+      option.setName('option').setDescription('Language to set to').setRequired(true);
 
-    execute(interaction) {
-        const language = interaction.options.getUser('user');
-        if (!servers[interaction.guildId])
-            servers[interaction.guildId] = {};
-        servers[interaction.guildId].language = language;
-        fs.writeFile('./datas/server_settings.json', JSON.stringify(servers, null, '\t'));
+      // eslint-disable-next-line no-restricted-syntax
+      for (const file of translationFiles) {
+        if (file !== 'language_file_template.json') {
+          // eslint-disable-next-line global-require, import/no-dynamic-require
+          const { name } = require(`../translations/${file}`);
+          option.addChoice(name, file.substring(0, file.length - 5));
+        }
+      }
+      return option;
+    }),
 
-        const { language: text } = require(`../translations/${language}.json`);
-        interaction.reply(text.set);
+  execute(interaction) {
+    const language = interaction.options.getString('option');
+
+    if (!servers[interaction.guildId]) {
+      servers[interaction.guildId] = {};
     }
+    servers[interaction.guildId].language = language;
+    fs.writeFileSync('./datas/server_settings.json', JSON.stringify(servers, null, '\t'));
+
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    const { language: text } = require(`../translations/${language}.json`);
+    interaction.reply(text.set);
+  },
 };
