@@ -16,5 +16,5 @@ jobs:
       - run: | 
           npm install
           export DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} 
-          pm2 start node index.js --name discordbot_guessing
+          pm2 start node index.js --name Vu-guessing-game-dioscrd-bot
       
