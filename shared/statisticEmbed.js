@@ -42,14 +42,14 @@ module.exports = {
         const rnd = Math.floor(Math.random() * translationFiles.length);
         if (translationFiles[rnd] === 'language_file_template.json') {
           // eslint-disable-next-line global-require, import/extensions
-          const { credit, yourDiscordID } = require('../translations/en');
+          const { credit, your_Discord_ID: yourDiscordID } = require('../translations/en');
           const bananamilk = await DiscordClient.users.fetch(yourDiscordID);
 
           embed.footer.text = credit.replace('<bananamilk>', bananamilk.tag);
           embed.footer.icon_url = bananamilk.displayAvatarURL({ dynamic: true });
         } else {
           // eslint-disable-next-line global-require, import/no-dynamic-require
-          const { translationCredit, yourDiscordID } = require(`../translations/${translationFiles[rnd]}`);
+          const { translation_credit: translationCredit, your_Discord_ID: yourDiscordID } = require(`../translations/${translationFiles[rnd]}`);
           const translator = await DiscordClient.users.fetch(yourDiscordID);
 
           embed.footer.text = translationCredit.replace('<you>', translator.tag);
