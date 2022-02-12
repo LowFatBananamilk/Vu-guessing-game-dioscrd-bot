@@ -1,9 +1,9 @@
 {
-    "name": "template",
+    "name": "your language",
     "statisticEmbed": {
         "title": "Vu's Guessing Game",
-        "description": "<user>'s statistics:`",
-        "color": "0xfdcc58",
+        "description": "<user>'s statistics:",
+        "color": null,
         "fields": [
             {
                 "name": "Plays",
@@ -55,8 +55,15 @@
                 "name": "5th try",
                 "value": null
             }
-        ]
+        ],
+        "footer": {
+            "text": null,
+            "icon_url": null
+        }
     },
+    "credit": "Bot made by <bananamilk>!",
+    "translation_credit": "your language translation done by <you>!",
+    "your_Discord_ID": "",
     "guess": {
         "instruction": "Guess a number between 1 and 100!",
         "read_fail": "I failed to read a number out of that. Try again with different message!\nOr send `stop` to stop playing.",

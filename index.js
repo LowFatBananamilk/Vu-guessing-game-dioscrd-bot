@@ -1,47 +1,46 @@
-const { Client, Collection, Intents } = require('discord.js');
 const fs = require('fs');
+const { DiscordClient, Collection } = require('./discordClient');
 
-const allIntents = new Intents(32767);
-const discordClient = new Client({ intents: allIntents });
+const userScoresPath = './datas/user_scores.json';
+const serverSettingsPath = './datas/server_settings.json';
 
-const user_scores_path = './datas/user_scores.json';
-const server_settings_path = './datas/server_settings.json';
-if (!fs.existsSync(user_scores_path)) {
-	console.log(`There is no "${user_scores_path}". This might mean the data might have been lost!!`);
-	fs.writeFileSync(user_scores_path, JSON.stringify({}, null, '\t'));
-	console.log('Created a new file..');
+if (!fs.existsSync(userScoresPath)) {
+  console.log(`There is no "${userScoresPath}". This might mean the data might have been lost!!`);
+  fs.writeFileSync(userScoresPath, JSON.stringify({}, null, '\t'));
+  console.log('Created a new file..');
 }
-if (!fs.existsSync(server_settings_path)) {
-	console.log(`There is no "${server_settings_path}. This might mean the data might have been lost!!`);
-	fs.writeFileSync(server_settings_path, JSON.stringify({}, null, '\t'));
-	console.log('Created a new file..');
+if (!fs.existsSync(serverSettingsPath)) {
+  console.log(`There is no "${serverSettingsPath}. This might mean the data might have been lost!!`);
+  fs.writeFileSync(serverSettingsPath, JSON.stringify({}, null, '\t'));
+  console.log('Created a new file..');
 }
 
-discordClient.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+DiscordClient.commands = new Collection();
+const commandFiles = fs
+  .readdirSync('./commands')
+  .filter((file) => file.endsWith('.js'));
+// eslint-disable-next-line no-restricted-syntax
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	discordClient.commands.set(command.data.name, command);
+  // eslint-disable-next-line global-require, import/no-dynamic-require
+  const command = require(`./commands/${file}`);
+  DiscordClient.commands.set(command.data.name, command);
 }
 
-discordClient.once('ready', () => {
-	console.log('Ready!');
+DiscordClient.once('ready', () => {
+  console.log('Ready!');
 });
 
-discordClient.on('interactionCreate', async interaction => {
-	if (interaction.isCommand()) {
-		const command = discordClient.commands.get(interaction.commandName);
+DiscordClient.on('interactionCreate', async (interaction) => {
+  if (interaction.isCommand()) {
+    const command = DiscordClient.commands.get(interaction.commandName);
 
-		if (!command)
-			return;
-
-		try {
-			await command.execute(interaction);
-		} catch (error) {
-			console.error(error);
-			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-		}
-	}
+    try {
+      await command.execute(interaction);
+    } catch (error) {
+      console.error(error);
+      await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+    }
+  }
 });
 
-discordClient.login(process.env.DISCORD_TOKEN);
+DiscordClient.login(process.env.DISCORD_TOKEN);
