@@ -1,0 +1,74 @@
+{
+    "name": "template",
+    "statisticEmbed": {
+        "title": "Vu's Guessing Game",
+        "description": "<user>'s statistics:`",
+        "color": "0xfdcc58",
+        "fields": [
+            {
+                "name": "Plays",
+                "value": null,
+                "inline": true
+            },
+            {
+                "name": "** **",
+                "value": "** **",
+                "inline": true
+            },
+            {
+                "name": "Win %",
+                "value": null,
+                "inline": true
+            },
+            {
+                "name": "Current Streak",
+                "value": null,
+                "inline": true
+            },
+            {
+                "name": "** **",
+                "value": "** **",
+                "inline": true
+            },
+            {
+                "name": "Max Streak",
+                "value": null,
+                "inline": true
+            },
+            {
+                "name": "1st try",
+                "value": null
+            },
+            {
+                "name": "2nd try",
+                "value": null
+            },
+            {
+                "name": "3rd try",
+                "value": null
+            },
+            {
+                "name": "4th try",
+                "value": null
+            },
+            {
+                "name": "5th try",
+                "value": null
+            }
+        ]
+    },
+    "guess": {
+        "instruction": "Guess a number between 1 and 100!",
+        "read_fail": "I failed to read a number out of that. Try again with different message!\nOr send `stop` to stop playing.",
+        "correct": "Congrat! You've guessed the number right!",
+        "wrong": "Oops! The number is <lower/higher> than your guess!\nYou have <tries> tries left.",
+        "lose": "Uh oh! You ran out of guess.. 😣\nThe number was <answer>"
+    },
+    "statistic": {
+        "player_did_not_played_yet": "You haven't played any rounds of `/guess` yet!",
+        "user_did_not_played_yet": "<user> hasn't played any rounds of `/guess` yet!"
+    },
+    "language": {
+        "set": "successfully set bot's language to `English`! 🇺🇸/🇬🇧"
+    }
+}
