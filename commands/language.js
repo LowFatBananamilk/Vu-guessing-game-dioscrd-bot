@@ -17,6 +17,7 @@ module.exports = {
                     option.addChoice(name, file);
                 }
             }
+            return option;
         }),
 
     execute(interaction) {
