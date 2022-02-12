@@ -1,0 +1,20 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps: 
+      - uses: actions/checkout@v2 
+      - run: | 
+          npm install
+          export DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} 
+          pm2 start node index.js --name discordbot_guessing
+      
