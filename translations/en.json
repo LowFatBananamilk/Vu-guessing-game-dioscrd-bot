@@ -62,7 +62,10 @@
         "read_fail": "I failed to read a number out of that. Try again with different message!\nOr send `stop` to stop playing.",
         "correct": "Congrat! You've guessed the number right!",
         "wrong": "Oops! The number is <lower/higher> than your guess!\nYou have <tries> tries left.",
-        "lose": "Uh oh! You ran out of guess.. 😣\nThe number was <answer>"
+        "lower": "lower",
+        "higher": "higher",
+        "lose": "Uh oh! You ran out of guess.. 😣\nThe number was <answer>",
+        "time_out": "You ran out of time.. Try again from begining!"
     },
     "statistic": {
         "player_did_not_played_yet": "You haven't played any rounds of `/guess` yet!",

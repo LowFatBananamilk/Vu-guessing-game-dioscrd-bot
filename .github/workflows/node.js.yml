@@ -16,5 +16,5 @@ jobs:
       - run: | 
           npm install
           export DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} 
-          pm2 start node index.js --name Vu-guessing-game-dioscrd-bot
-      
+          pm2 delete Vu-guessing-game-dioscrd-bot.js 2> /dev/null
+          pm2 start index.js --name Vu-guessing-game-dioscrd-bot  
