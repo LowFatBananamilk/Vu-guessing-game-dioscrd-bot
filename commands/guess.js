@@ -63,14 +63,16 @@ module.exports = {
       }
 
       if (m.content === 'stop') {
+        reply = await m.reply(text.game_stopped);
         collector.stop();
+        return;
       }
 
       const guess = parseInt(m.content, 10);
       if (Number.isNaN(guess)) {
         m.reply(text.read_fail);
       } else if (guess === answer) {
-        reply = m.reply(text.correct);
+        reply = await m.reply(text.correct);
 
         statistic.wins += 1;
         statistic.currentStreak += 1;
@@ -89,7 +91,7 @@ module.exports = {
               .replace('<tries>', count - tries),
           );
         } else {
-          reply = m.reply(text.lose.replace('<answer>', answer));
+          reply = await m.reply(text.lose.replace('<answer>', answer));
 
           statistic.currentStreak = 0;
           collector.stop();
@@ -108,10 +110,11 @@ module.exports = {
         if (reply) {
           reply.edit({ content: reply.content, embeds: [embed] });
         }
-      } else {
+
+        fs.writeFileSync('./datas/user_scores.json', JSON.stringify(scores, null, '\t'));
+      } else if (!reply) {
         interaction.followUp(text.time_out);
       }
-      fs.writeFileSync('./datas/user_scores.json', JSON.stringify(scores, null, '\t'));
     });
   },
 };

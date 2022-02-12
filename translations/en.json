@@ -72,7 +72,8 @@
         "lower": "lower",
         "higher": "higher",
         "lose": "Uh oh! You ran out of guess.. 😣\nThe number was <answer>",
-        "time_out": "You ran out of time.. Try again from begining!"
+        "time_out": "You ran out of time.. Try again from begining!",
+        "game_stopped": "Game stopped."
     },
     "statistic": {
         "player_did_not_played_yet": "You haven't played any rounds of `/guess` yet!",
