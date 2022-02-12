@@ -1,5 +1,6 @@
 node_modules
 config.json
 register_to_test_server.js
+register_to_all_server.js
 datas/user_scores.json
 datas/server_settings.json
