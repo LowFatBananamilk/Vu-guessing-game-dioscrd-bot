@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master, file_creation_debug ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, file_creation_debug ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -16,5 +16,4 @@ jobs:
       - run: | 
           npm install
           export DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} 
-          pm2 start index.js --name Vu-guessing-game-dioscrd-bot
-      
+          pm2 start index.js --name Vu-guessing-game-dioscrd-bot      
