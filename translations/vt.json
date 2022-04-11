@@ -1,0 +1,85 @@
+{
+    "name": "Vietnamese",
+    "StatisticsEmbed": {
+        "title": "Vu's Guessing Game",
+        "description": "Số liệu thống kê của <user>:",
+        "color": null,
+        "fields": [
+            {
+                "name": "Lượt chơi",
+                "value": null,
+                "inline": true
+            },
+            {
+                "name": "** **",
+                "value": "** **",
+                "inline": true
+            },
+            {
+                "name": "Win %",
+                "value": null,
+                "inline": true
+            },
+            {
+                "name": "chuỗi thắng Hiện tại",
+                "value": null,
+                "inline": true
+            },
+            {
+                "Tên": "** **",
+                "value": "** **",
+                "inline": true
+            },
+            {
+                "name": "chuỗi thắng cao nhất",
+                "value": null,
+                "inline": true
+            },
+            {
+                "name": "lần thử đầu tiên",
+                "value": null
+            },
+            {
+                "name": "lần thử thứ 2",
+                "value": null
+            },
+            {
+                "name": "lần thử thứ 3",
+                "value": null
+            },
+            {
+                "name": "lần thử thứ 4",
+                "value": null
+            },
+            {
+                "name": "lần thử thứ 5",
+                "value": null
+            }
+        ],
+        "footer": {
+            "text": null,
+            "icon_url": null
+        }
+    },
+    "credit": "Bot do <bananamilk>!",
+    "translate_credit": "Bản dịch Tiếng Việt được thực hiện bởi <you>!",
+    "your_Discord_ID": "888816238539702314",
+    "guess": {
+        "instruction": "Đoán một số từ 1 đến 100!",
+        "read_fail": "Tôi không đọc được số nào trong số đó. Hãy thử lại với tin nhắn khác! \nHay gửi `stop` để dừng phát. ",
+        "correct": "Chúc mừng! Bạn đã đoán đúng số!",
+        "wrong": "Rất tiếc!bạn non vl Con số <lower/higher> so với dự đoán của bạn! \nBạn còn <tries>.",
+        "lower": "thấp hơn",
+        "higher": "cao hơn",
+        "lose": "Rất tiếc! bạn quá non nên Bạn đoán không ra rồi .. 😣 \nSố là <answer>",
+        "time_out": "Bạn đã hết thời gian .. Hãy thử lại từ đầu!",
+        "game_stopped": "Trò chơi đã dừng."
+    },
+    "statistic": {
+        "player_did_not_played_yet": "Bạn chưa chơi bất kỳ hiệp nào của `/guess`! ",
+        "user_did_not_played_yet": "<user> chưa chơi bất kỳ hiệp nào của `/guess`! "
+    },
+    "language": {
+        "set": "đặt thành công ngôn ngữ của bot thành `Tiếng Việt` ! 🇻🇳"
+    }
+}
