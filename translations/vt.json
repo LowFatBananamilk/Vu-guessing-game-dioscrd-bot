@@ -1,6 +1,6 @@
 {
     "name": "Vietnamese",
-    "StatisticsEmbed": {
+    "statisticsEmbed": {
         "title": "Vu's Guessing Game",
         "description": "Số liệu thống kê của <user>:",
         "color": null,
